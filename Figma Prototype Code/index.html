@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Story</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Frame 1: Opening Scene -->
+    <div class="frame active" id="frame-1" data-frame="1">
+        <div class="background">
+            <img src="https://www.figma.com/api/mcp/asset/b0b62627-4d9c-44cf-a160-8b9efcc98a0c" alt="Background" class="bg-image">
+        </div>
+        <div class="overlay-click" onclick="goToFrame('frame-1-5')"></div>
+    </div>
+
+    <!-- Frame 1.5: "What can I get for you?" -->
+    <div class="frame" id="frame-1-5" data-frame="1.5">
+        <div class="background-color"></div>
+        <div class="text-content centered-text">
+            <p class="large-text">"what can i</p>
+            <p class="large-text">get for</p>
+            <p class="large-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</p>
+        </div>
+        <div class="question-mark rotated">?</div>
+        <div class="overlay-click" onclick="goToFrame('frame-2')"></div>
+    </div>
+
+    <!-- Frame 2: Multiple Choice -->
+    <div class="frame" id="frame-2" data-frame="2">
+        <div class="background">
+            <img src="https://www.figma.com/api/mcp/asset/25af6e34-79d3-40b5-8dee-001d8d96e817" alt="Background" class="bg-image">
+        </div>
+        <div class="text-content question-text">
+            <p class="medium-text">can i get</p>
+            <p class="medium-text">something</p>
+        </div>
+        <div class="ellipsis">...</div>
+        <div class="choices">
+            <button class="choice-btn" onclick="goToFrame('frame-4a')">A. warm</button>
+            <button class="choice-btn" onclick="goToFrame('frame-4b')">B. sweet</button>
+            <button class="choice-btn" onclick="goToFrame('frame-4c')">C. strong</button>
+        </div>
+    </div>
+
+    <!-- Frame 4A: Warm Response -->
+    <div class="frame" id="frame-4a" data-frame="4a">
+        <div class="background">
+            <img src="https://www.figma.com/api/mcp/asset/2581de70-5fda-43de-a85f-ee147139f876" alt="Background" class="bg-image shifted">
+        </div>
+        <p class="response-text">"warm… like last time."</p>
+        <div class="overlay-click" onclick="goToFrame('frame-5a')"></div>
+    </div>
+
+    <!-- Frame 4B: Sweet Response -->
+    <div class="frame" id="frame-4b" data-frame="4b">
+        <div class="background">
+            <img src="https://www.figma.com/api/mcp/asset/b5b40a2c-33ad-4c57-bd03-e082639c1a21" alt="Background" class="bg-image shifted">
+        </div>
+        <p class="response-text">"sweet… soft as always."</p>
+        <div class="overlay-click" onclick="goToFrame('frame-5b')"></div>
+    </div>
+
+    <!-- Frame 4C: Strong Response -->
+    <div class="frame" id="frame-4c" data-frame="4c">
+        <div class="background">
+            <img src="https://www.figma.com/api/mcp/asset/95d1ae58-5e3d-4018-8ece-a9bfa4f9477e" alt="Background" class="bg-image shifted">
+        </div>
+        <div class="response-text-centered">
+            <p>"strong… still</p>
+            <p>shielding yourself."</p>
+        </div>
+        <div class="overlay-click" onclick="goToFrame('frame-4-5')"></div>
+    </div>
+
+    <!-- Frame 4.5: Strong Follow-up -->
+    <div class="frame" id="frame-4-5" data-frame="4.5">
+        <div class="background-color"></div>
+        <div class="response-text-centered-large">
+            <p>"that's enough for now</p>
+            <p>you're not ready just yet."</p>
+        </div>
+        <div class="overlay-click" onclick="goToFrame('frame-1')"></div>
+    </div>
+
+    <!-- Frame 5A: Warm Continuation -->
+    <div class="frame" id="frame-5a" data-frame="5a">
+        <div class="background-color"></div>
+        <div class="text-fade-in">
+            <p class="story-text">The warmth fills you...</p>
+        </div>
+        <div class="overlay-click" onclick="goToFrame('frame-5c')"></div>
+    </div>
+
+    <!-- Frame 5B: Sweet Continuation -->
+    <div class="frame" id="frame-5b" data-frame="5b">
+        <div class="background-color"></div>
+        <div class="text-fade-in">
+            <p class="story-text">The sweetness lingers...</p>
+        </div>
+        <div class="overlay-click" onclick="goToFrame('frame-5c')"></div>
+    </div>
+
+    <!-- Frame 5C: "It always does" -->
+    <div class="frame" id="frame-5c" data-frame="5c">
+        <div class="background-color"></div>
+        <div class="text-content large-centered">
+            <p class="large-text">it always does</p>
+        </div>
+        <div class="overlay-click" onclick="goToFrame('frame-6')"></div>
+    </div>
+
+    <!-- Frame 6: "So why are you back?" -->
+    <div class="frame" id="frame-6" data-frame="6">
+        <div class="background-color"></div>
+        <div class="text-content centered-text">
+            <p class="large-text">"so… why are</p>
+            <p class="large-text">you back</p>
+        </div>
+        <div class="question-mark rotated-alt">?</div>
+        <div class="overlay-click" onclick="goToFrame('frame-7')"></div>
+    </div>
+
+    <!-- Frame 7: Final Choice -->
+    <div class="frame" id="frame-7" data-frame="7">
+        <div class="background-color"></div>
+        <div class="final-choices">
+            <button class="choice-btn-large left-choice" onclick="goToFrame('frame-7a')">A. "i needed quiet."</button>
+            <button class="choice-btn-large right-choice" onclick="goToFrame('frame-7b')">B. "i didn't want to be alone."</button>
+        </div>
+    </div>
+
+    <!-- Frame 7A: Quiet Response -->
+    <div class="frame" id="frame-7a" data-frame="7a">
+        <div class="background-color"></div>
+        <p class="final-response">A. "i needed quiet."</p>
+        <div class="overlay-click" onclick="goToFrame('frame-7-5a')"></div>
+    </div>
+
+    <!-- Frame 7B: Alone Response -->
+    <div class="frame" id="frame-7b" data-frame="7b">
+        <div class="background-color"></div>
+        <p class="final-response-right">B. "i didn't want to be alone."</p>
+        <div class="overlay-click" onclick="goToFrame('frame-7-5b')"></div>
+    </div>
+
+    <!-- Frame 7.5A: Quiet Ending -->
+    <div class="frame" id="frame-7-5a" data-frame="7.5a">
+        <div class="background-color"></div>
+        <div class="ending-text">
+            <p class="medium-text">Silence wraps around you like a familiar blanket.</p>
+            <button class="restart-btn" onclick="goToFrame('frame-1')">Start Over</button>
+        </div>
+    </div>
+
+    <!-- Frame 7.5B: Together Ending -->
+    <div class="frame" id="frame-7-5b" data-frame="7.5b">
+        <div class="background-color"></div>
+        <div class="ending-text">
+            <p class="medium-text">And you were never alone.</p>
+            <button class="restart-btn" onclick="goToFrame('frame-1')">Start Over</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+/* Google Fonts - Using similar alternatives since custom fonts may not be available */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #e3ded7;
+    position: relative;
+}
+
+/* Frame Container */
+.frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+    background-color: #e3ded7;
+}
+
+.frame.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* Background */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bg-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+.bg-image.shifted {
+    top: 60%;
+}
+
+.background-color {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #e3ded7;
+}
+
+/* Overlay for click-through */
+.overlay-click {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* Text Styles */
+.text-content {
+    position: relative;
+    z-index: 3;
+}
+
+.large-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 10vw, 250px);
+    font-weight: 400;
+    color: #3f2237;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.medium-text {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(40px, 6vw, 115px);
+    font-weight: 500;
+    color: #3f2237;
+    line-height: 1;
+    margin: 0;
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 13%;
+    transform: translateY(-50%);
+}
+
+.question-mark {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(150px, 25vw, 700px);
+    font-weight: 100;
+    color: #3f2237;
+    z-index: 2;
+}
+
+.question-mark.rotated {
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%) rotate(15deg);
+}
+
+.question-mark.rotated-alt {
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%) rotate(15deg);
+}
+
+/* Frame 2 Question */
+.question-text {
+    position: absolute;
+    top: 17%;
+    right: 5%;
+    text-align: right;
+}
+
+.ellipsis {
+    position: absolute;
+    top: 34%;
+    right: 30%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 10vw, 200px);
+    color: #3f2237;
+    z-index: 3;
+}
+
+/* Choice Buttons */
+.choices {
+    position: absolute;
+    top: 52%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.choice-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(30px, 4vw, 100px);
+    font-weight: 500;
+    color: #552649;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: right;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.choice-btn:hover {
+    color: #3f2237;
+    transform: scale(1.05);
+}
+
+.choice-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 0;
+    height: 2px;
+    background-color: #552649;
+    transition: width 0.3s ease;
+}
+
+.choice-btn:hover::after {
+    width: calc(100% - 40px);
+}
+
+/* Response Text */
+.response-text {
+    position: absolute;
+    top: 19%;
+    right: 5%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 115px);
+    color: #3f2237;
+    text-align: right;
+    z-index: 3;
+    line-height: 1;
+}
+
+.response-text-centered {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 115px);
+    color: #3f2237;
+    text-align: center;
+    z-index: 3;
+    line-height: 1;
+}
+
+.response-text-centered p {
+    margin: 5px 0;
+}
+
+.response-text-centered-large {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 115px);
+    color: #3f2237;
+    text-align: center;
+    z-index: 3;
+    line-height: 1.2;
+}
+
+.response-text-centered-large p {
+    margin: 10px 0;
+}
+
+/* Frame 5C Large Centered */
+.large-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.story-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 120px);
+    color: #3f2237;
+    text-align: center;
+}
+
+.text-fade-in {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Frame 7 Final Choices */
+.final-choices {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 10;
+}
+
+.choice-btn-large {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(25px, 3.5vw, 90px);
+    font-weight: 400;
+    color: #3f2237;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 40px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.left-choice {
+    justify-content: flex-start;
+    padding-left: 10%;
+    text-align: left;
+}
+
+.right-choice {
+    justify-content: flex-end;
+    padding-right: 10%;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.choice-btn-large:hover {
+    background-color: rgba(63, 34, 55, 0.1);
+    transform: scale(1.02);
+}
+
+/* Final Responses */
+.final-response {
+    position: absolute;
+    top: 43%;
+    left: 10%;
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(30px, 4vw, 100px);
+    color: #3f2237;
+    z-index: 3;
+}
+
+.final-response-right {
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(30px, 4vw, 90px);
+    color: #3f2237;
+    text-align: right;
+    z-index: 3;
+    max-width: 50%;
+}
+
+/* Ending Text */
+.ending-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+}
+
+.restart-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(20px, 2.5vw, 40px);
+    color: #552649;
+    background: none;
+    border: 2px solid #552649;
+    padding: 15px 40px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background-color: #552649;
+    color: #e3ded7;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .centered-text {
+        left: 8%;
+    }
+    
+    .question-mark.rotated,
+    .question-mark.rotated-alt {
+        right: 10%;
+    }
+    
+    .question-text {
+        right: 8%;
+    }
+    
+    .choices {
+        right: 8%;
+    }
+    
+    .response-text {
+        right: 8%;
+    }
+}
+
+/* Accessibility */
+button:focus {
+    outline: 3px solid #552649;
+    outline-offset: 5px;
+}
