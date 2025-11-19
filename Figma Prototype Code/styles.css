@@ -74,6 +74,32 @@ body {
     background-color: #e3ded7;
 }
 
+/* Click Indicator */
+.click-indicator {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(16px, 2vw, 24px);
+    color: #552649;
+    opacity: 0.7;
+    z-index: 6;
+    animation: pulseIndicator 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulseIndicator {
+    0%, 100% {
+        opacity: 0.7;
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
 /* Overlay for click-through */
 .overlay-click {
     position: absolute;
