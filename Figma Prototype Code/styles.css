@@ -74,29 +74,19 @@ body {
     background-color: #e3ded7;
 }
 
-/* Click Indicator */
-.click-indicator {
-    position: absolute;
-    bottom: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(16px, 2vw, 24px);
-    color: #552649;
-    opacity: 0.7;
-    z-index: 6;
-    animation: pulseIndicator 2s ease-in-out infinite;
-    pointer-events: none;
+/* Opening Title */
+.opening-title {
+    animation: fadeInTitle 2s ease-in forwards;
 }
 
-@keyframes pulseIndicator {
-    0%, 100% {
-        opacity: 0.7;
-        transform: translateX(-50%) translateY(0);
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    50% {
+    to {
         opacity: 1;
-        transform: translateX(-50%) translateY(-5px);
+        transform: translateY(0);
     }
 }
 
